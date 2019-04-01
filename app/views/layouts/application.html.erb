@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stories</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300" rel="stylesheet" type="text/css">
+  <!-- Your other stuff  (you can have problems if you don't add minimum scale in the viewport) -->
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <!-- Include a Sidr bundled CSS theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.dark.min.css">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>  
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id='sidr' class="menu" style="left: -240px;">
+    <ul>
+      <li><a href="/">Home</a></li> <li><a href="/about">About</a></li>
+      <li><a href="/signups/new">Contact</a></li>
+    </ul> 
+    <img alt="Close" class="icon-close" src="https://s3.amazonaws.com/codecademy-content/projects/z2d/stories/close-white.svg" width="24px">
+  </div>
+
+<%= yield %>
+
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="//cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/jquery.sidr/2.2.1/jquery.sidr.min.js"></script>
+  <script>
+  $(document).ready(function() {
+      $('.icon-menu').sidr({});
+    	$('.icon-close').sidr('close','sidr');
+  });
+  </script>
+  </body>
+</html>
